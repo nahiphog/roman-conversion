@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RomanNumeralsStrat04</title>
+</head>
+
+<body>
+
+
+    <button onclick="InputHere()">Try it</button>
+
+    <p id="GimmeNumber"></p>
+
+
+
+
+</body>
+
+<script>
+    const roman = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+    const value = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+
+    const QuotienT = [];
+    const RemaindeR = [];
+
+
+    function InputHere() {
+
+        var convertMe = prompt("Please submit an integer between 1 and 3999", "");
+
+
+        if (isNaN(convertMe) || convertMe < 1 || convertMe  > 3999  || parseInt(convertMe) != convertMe) {
+            alert(`Please give a proper input.`)
+            InputHere()
+        }
+        else {
+
+            
+            document.getElementById("GimmeNumber").innerHTML =
+                "You have submitted " + convertMe;
+
+            for (i = 0; i <= 12; i++) {
+                QuotienT[i] = Math.floor(convertMe / [value[i]]);
+                RemaindeR[i] = convertMe % [value[i]];
+                convertMe = RemaindeR[i];
+
+                document.write(roman[i].repeat(QuotienT[i]))
+
+            }
+        }
+    }
+
+    console.log(QuotienT)
+        // console.log(outPut)
+c
+    
+
+
+
+
+
+
+
+</script>
+
+</html>
